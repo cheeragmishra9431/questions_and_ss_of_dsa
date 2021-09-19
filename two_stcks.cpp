@@ -19,9 +19,10 @@ void ps(int arr[], int n){
     s.push(0);
     cout<<1;
     for(int i=1; i<n;i++ ){
-        if(arr[i]<arr[s.top()]){
+        if( s.empty()==false && arr[i]<arr[s.top()]){
             cout<<i-s.top();
             s.push(i);
+            continue;
         }
         else{
             while(arr[i]>arr[s.top()] && s.empty()==false){
@@ -38,9 +39,30 @@ void ps(int arr[], int n){
         }
     }
 }
+void stp(int arr[], int n){
+    stack<int> s;
+    s.push(0);
+    for(int i=1; i<n ;i++){
+        while(s.empty()==false && arr[i]>=arr[s.top()]){
+            s.pop();
+        }
+        int span;
+        if(s.empty()==true){
+            span=i+1;
+        }
+        else{
+            span=i-s.top();
+
+        }
+        cout<<span;
+        s.push(span);
+        
+    }
+}
 int main(){
 //code;
-int arr[]={0,1,2,3,4,5,6,4};
-ps(arr,8);
+int arr[]={10,4,5,90,120,80};
+// ps(arr,6);
+stp(arr,6);
 return 0;
 }
