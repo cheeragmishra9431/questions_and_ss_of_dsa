@@ -28,8 +28,8 @@ int main(){
 vector<int> adj[7];
 addE(adj, 0,1);
 addE(adj, 0,2);
-addE(adj, 0,3);
 addE(adj, 0,4);
+addE(adj, 0,3);
 bfs(adj, 0, 5);
 return 0;
 }
